@@ -1,0 +1,370 @@
+[ 2018-11-14T10:36:16+08:00 ] ::1 /API/Test/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000780s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+ERR: 无法加载控制器:Test
+
+[ 2018-11-14T10:36:20+08:00 ] ::1 /API/SHOP/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000831s ]
+
+[ 2018-11-14T10:37:15+08:00 ] ::1 /api
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000435s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000996s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000114s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006799s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006834s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000171s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000628s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000680s ]
+
+[ 2018-11-14T10:37:21+08:00 ] ::1 /api/shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000643s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000965s ]
+
+[ 2018-11-14T11:03:47+08:00 ] ::1 /api/buyOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000196s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002627s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000937s ]
+
+[ 2018-11-14T11:04:47+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000826s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000806s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000867s ]
+ERR: 无法加载控制器:UserFilter
+
+[ 2018-11-14T11:05:14+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000439s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:15+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000487s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000551s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000597s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:15+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:15+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000547s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000736s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000797s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:15+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000380s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000566s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:15+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000634s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:16+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000614s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:05:16+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000571s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+ERR: Call to undefined function Api\Controller\json_error()
+
+[ 2018-11-14T11:06:01+08:00 ] ::1 /api/userFilter/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000624s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000644s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 47 行.
+
+[ 2018-11-14T11:06:52+08:00 ] ::1 /api/byuOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+
+[ 2018-11-14T11:08:06+08:00 ] ::1 /api/byuOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000988s ]
+ERR: 无法加载控制器:ByuOrder
+
+[ 2018-11-14T11:08:14+08:00 ] ::1 /api/buyOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000537s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+
+[ 2018-11-14T11:12:40+08:00 ] ::1 /api/buyOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000794s ]
+NOTIC: [2] Illegal string offset 'Host' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Connection' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Cache-Control' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Upgrade-Insecure-Requests' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'User-Agent' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept-Encoding' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Accept-Language' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+NOTIC: [2] Illegal string offset 'Cookie' /Applications/MAMP/htdocs/test2/Application/Api/Controller/UserFilterController.class.php 第 45 行.
+
+[ 2018-11-14T11:12:54+08:00 ] ::1 /api/buyOrder/buyOrder
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000614s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+ERR: 非法操作:buyOrder
+
+[ 2018-11-14T11:13:04+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+
+[ 2018-11-14T11:14:11+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000668s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000820s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000874s ]
+
+[ 2018-11-14T11:14:13+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+
+[ 2018-11-14T11:35:33+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001015s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001012s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001084s ]
+
+[ 2018-11-14T12:06:30+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000557s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000806s ]
+
+[ 2018-11-14T20:31:12+08:00 ] ::1 /api/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000825s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000095s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008060s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008102s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000146s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000168s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000519s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000543s ]
+
+[ 2018-11-14T20:32:11+08:00 ] ::1 /api/buyOrder/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+ERR: 非法操作:index
+
+[ 2018-11-14T20:32:16+08:00 ] ::1 /api/buyOrder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000485s ]
+
+[ 2018-11-14T20:47:10+08:00 ] ::1 /api/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000512s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+
