@@ -1,0 +1,190 @@
+[ 2018-11-19T10:21:44+08:00 ] 127.0.0.1 /api/buyOrder/add_address
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `pt_address` [ RunTime:0.0059s ]
+SQL: INSERT INTO `pt_address` (`user_id`,`username`,`postal_code`,`national_code`,`city_name`,`province_name`,`detail_info`,`tel_number`,`create_time`) VALUES ('1','刘环东','5100000','china','昌平','北京','北京市昌平区回龙观国仕汇小区4号楼2单元301室','18810950680','1542594104') [ RunTime:0.0009s ]
+
+[ 2018-11-19T14:20:49+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '1' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0007s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('QC20181119142049UCUP','1','3','15','0','15','0','1542608449','1542608449','0') [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0006s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('2','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:20:54+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-11-19T14:20:56+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '3' ) LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-11-19T14:20:59+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '4' ) LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-11-19T14:21:02+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '5' ) LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-11-19T14:25:21+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000486s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0005s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('QC20181119142521BSGW','2','3','15','0','15','0','1542608721','1542608721','0') [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('3','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:27+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000530s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('YWSX20181119142527OZSA','2','4','15','0','15','0','1542608727','1542608727','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('4','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0003s ]
+
+[ 2018-11-19T14:25:31+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SXYWDQ20181119142531GRIM','2','5','15','0','15','0','1542608731','1542608731','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('5','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0003s ]
+
+[ 2018-11-19T14:25:38+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000342s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '1' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SXYWDQ20181119142538CWUD','1','5','15','0','15','0','1542608738','1542608738','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('6','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:42+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SXYWDQ20181119142542DAEQ','2','5','15','0','15','0','1542608742','1542608742','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('7','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:43+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000489s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000524s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '3' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SXYWDQ20181119142543IEDX','3','5','15','0','15','0','1542608743','1542608743','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0003s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('8','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:48+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000387s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000614s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '3' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('QKD20181119142548AMEN','3','1','15','0','15','0','1542608748','1542608748','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('9','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:54+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '3' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SKD20181119142554EZNR','3','2','15','0','15','0','1542608754','1542608754','0') [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('10','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+
+[ 2018-11-19T14:25:59+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000316s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '3' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('QC20181119142559EKUR','3','3','15','0','15','0','1542608759','1542608759','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('11','1','0','0','0','5','啦啦啦','1','昌平物美超市1','10','3','4.5','这是订单的备注') [ RunTime:0.0004s ]
+

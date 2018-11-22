@@ -1,0 +1,17 @@
+[ 2018-11-16T18:08:04+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '1' ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SKD2018NovFri180thWYVA','1','2','15','0','15','0','1542362884','1542362884','0') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0005s ]
+ERR: 1364:Field 'id' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `pt_order_detail` () VALUES ()
+ERR: 1364:Field 'id' doesn't have a default value
+ [ SQL语句 ] : INSERT INTO `pt_order_detail` () VALUES ()
+

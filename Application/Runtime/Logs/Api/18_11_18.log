@@ -1,0 +1,188 @@
+[ 2018-11-18T14:45:43+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000426s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '1' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SKD2018NovSun140thKQPA','1','2','15','0','15','0','1542523542','1542523543','0') [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0004s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('1','1','0','0','0','5','可乐1罐','1','昌平物美超市','10','3','4.5','这是订单的备注') [ RunTime:0.0005s ]
+
+[ 2018-11-18T14:47:16+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+
+[ 2018-11-18T14:49:56+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000419s ]
+
+[ 2018-11-18T14:58:16+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000397s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+
+[ 2018-11-18T14:58:30+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000360s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+
+[ 2018-11-18T14:58:32+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+
+[ 2018-11-18T14:58:33+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+
+[ 2018-11-18T14:58:34+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+
+[ 2018-11-18T14:58:35+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+
+[ 2018-11-18T14:58:35+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+
+[ 2018-11-18T14:58:36+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+
+[ 2018-11-18T14:58:37+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000477s ]
+
+[ 2018-11-18T14:58:45+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+
+[ 2018-11-18T14:58:45+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+
+[ 2018-11-18T14:58:46+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+
+[ 2018-11-18T14:58:47+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+
+[ 2018-11-18T14:58:47+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000485s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+
+[ 2018-11-18T14:58:48+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+
+[ 2018-11-18T14:58:49+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+
+[ 2018-11-18T14:58:49+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000534s ]
+
+[ 2018-11-18T14:58:50+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000405s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000553s ]
+
+[ 2018-11-18T14:59:42+08:00 ] 127.0.0.1 /api/buyorder/buy_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000428s ]
+SQL: SHOW COLUMNS FROM `pt_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `pt_user` WHERE ( `id` = '1' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0005s ]
+SQL: INSERT INTO `pt_order` (`order_number`,`uid`,`type`,`total_price`,`is_pay`,`pay_price`,`pay_time`,`create_time`,`update_time`,`order_status`) VALUES ('SKD20181118145942IHJF','1','2','15','0','15','0','1542524382','1542524382','0') [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0006s ]
+SQL: INSERT INTO `pt_order_detail` (`order_id`,`address`,`base_price`,`discount_id`,`discount_price`,`tip_price`,`detail_info`,`is_specified`,`specified_address`,`specified_price`,`specified_distance`,`refer_price`,`remark`) VALUES ('1','1','0','0','0','5','可乐1罐','1','昌平物美超市','10','3','4.5','这是订单的备注') [ RunTime:0.0006s ]
+

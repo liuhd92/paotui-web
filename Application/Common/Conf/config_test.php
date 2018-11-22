@@ -7,5 +7,5 @@ return array(
     'URL_MODEL' => '2', //URL 模式
     'URL_HTML_SUFFIX' => '', //伪静态后缀
     
-    'LOAD_EXT_CONFIG' => 'config_local', // 引入外部配置
+    'LOAD_EXT_CONFIG' => 'conf_local', // 引入外部配置
 );

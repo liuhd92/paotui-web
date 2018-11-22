@@ -201,3 +201,38 @@ function get_first_letter($str)
      }
      return $res;
  }
+ 
+ /**
+  * 生成订单号
+  * 订单号生成规则：年月日时分秒 + 业务缩写 + 4位大写随机数
+  */
+ //1取快递|2送快递|3取餐|4衣物送洗|5送洗衣物代取，以后拓展往后顺接
+ function create_order_num($type) {
+     if (empty($type)) {
+         return false;
+     }
+     
+     $order_num = date('YmdHis');
+     switch ($type){
+         case 1:
+             $order_num = 'QKD'.$order_num; // 取快递
+             break;
+         case 2:
+             $order_num = 'SKD'.$order_num; // 送快递
+             break;
+         case 3:
+             $order_num = 'QC'.$order_num; // 取餐
+             break;
+         case 4:
+             $order_num = 'YWSX'.$order_num; // 衣物送洗
+             break;
+         case 5:
+             $order_num = 'SXYWDQ'.$order_num; // 送洗衣物代取
+             break;
+         default:
+             $order_num = 'QT'.$order_num;
+             break;
+     }
+     $order_num.=randcode(4, 5);
+     return $order_num;
+ }
