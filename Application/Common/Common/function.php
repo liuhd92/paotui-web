@@ -253,7 +253,7 @@ function randcode($len, $mode=2){
 	$rcode = '';
 
 	switch($mode){
-		case 1: //去除0、o、O、l等易混淆字符
+		case 1: //去除0、o、O、l、1等易混淆字符
 			$chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789abcdefghijkmnpqrstuvwxyz';
 			break;
 		case 2: //纯数字
@@ -263,8 +263,11 @@ function randcode($len, $mode=2){
 			$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
 			break;
 		case 4: //全数字+大小写字母+一些特殊字符
-			$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz~!@#$%^&*()';
-			break;
+		    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz~!@#$%^&*()';
+		    break;
+		case 5: //大写字母
+		    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		    break;
 	}
 
 	$count = strlen($chars) - 1;
