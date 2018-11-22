@@ -8,17 +8,9 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-// $redis = new Redis();
-// $redis->connect('127.0.0.1', 6379); //连接Redis
-// //$redis->auth('mypasswords123sdfeak'); //密码验证
-// $redis->select(2);//选择数据库2
-// $redis->set( "testKey" , "Hello Redis"); //设置测试key
-// echo $redis->get("testKey");//输出value
-// exit;
-////////////////
 
 // 应用入口文件
-//1hhaaa
+
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 
