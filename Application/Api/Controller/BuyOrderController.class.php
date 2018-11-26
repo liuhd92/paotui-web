@@ -8,10 +8,11 @@
 // +----------------------------------------------------------------------
 namespace Api\Controller;
 use Think\Controller;
+use Think\Log;
 /**
  * 下单业务层
  * @author liuhd
- * @date 2018/11/14 
+ * @date 2018/11/14
  */
 class BuyOrderController extends Controller { //UserFilterController
 
@@ -104,6 +105,8 @@ class BuyOrderController extends Controller { //UserFilterController
 //         $this->checkLogin();
         /************post/get参数 + 数据校验************/
         $user_id = (int)I('post.uid', 0);
+        Log::write(var_export($_POST, true));
+        Log::write('user_id : '.$user_id);
         $order_status = (int)I('post.order_status', 0);
         if (empty($user_id)) json_error(10201);
         
