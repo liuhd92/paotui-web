@@ -38,12 +38,12 @@ class OrderModel {
      * @author liuhd
      * @date 2018/11/16
      */
-    function getInfoByUId($user_id = 0, $order_status = 0) {
+    function getInfoByUId($user_id = 0, $order_status = '') {
         if (empty($user_id)) {
             return false;
         }
         
-        $where = $order_status == 0 ? "`uid` = '$user_id'" : "`uid` = '$user_id' AND `order_status` = '$order_status'";
+        $where = $order_status == '' ? "`uid` = '$user_id'" : "`uid` = '$user_id' AND `order_status` IN ($order_status)";
         
         $Order = M('Order');
         return $Order->where($where)->order("`create_time` desc")->select();

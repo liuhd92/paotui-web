@@ -105,9 +105,7 @@ class BuyOrderController extends Controller { //UserFilterController
 //         $this->checkLogin();
         /************post/get参数 + 数据校验************/
         $user_id = (int)I('post.uid', 0);
-        Log::write(var_export($_POST, true));
-        Log::write('user_id : '.$user_id);
-        $order_status = (int)I('post.order_status', 0);
+        $order_status = I('post.order_status', '');
         if (empty($user_id)) json_error(10201);
         
         /************查询用户信息是否存在************/
@@ -135,7 +133,7 @@ class BuyOrderController extends Controller { //UserFilterController
     }
     
     /*------------------------------------------------------ */
-    //--添加收货地址
+    //--收货地址列表
     /*------------------------------------------------------ */
     public function address_list() {
 //         $this->checkLogin();
@@ -165,6 +163,7 @@ class BuyOrderController extends Controller { //UserFilterController
         /************输出************/
         json_success($address_info);
     }
+    
     
     /*------------------------------------------------------ */
     //--添加收货地址
