@@ -43,7 +43,7 @@ class OrderModel {
             return false;
         }
         
-        $where = $order_status == '' ? "`uid` = '$user_id'" : "`uid` = '$user_id' AND `order_status` IN ($order_status)";
+        $where = $order_status == 0 ? "`uid` = '$user_id'" : "`uid` = '$user_id' AND `order_status` = '$order_status'";
         
         $Order = M('Order');
         return $Order->where($where)->order("`create_time` desc")->select();
@@ -65,4 +65,12 @@ class OrderModel {
         return $Order->where("`id` = '$id'")->find();
     }
     
+    public function edit($where = array(), $data = array()) {
+        if (empty($data)) {
+            return false;
+        }
+        
+        $Order = M('Order');
+        return $Order->where($where)->data($data)->save();
+    }
 }

@@ -29,4 +29,19 @@ class UserModel {
         return $User->where("`id` = '$user_id'")->find();
     }
     
+    /**
+     * 添加用户信息
+     * @param  array $user 用户数据
+     * @return bool|int
+     * @author liuhd
+     */
+    function add($user = array()) {
+        if (empty($user)) {
+            return false;
+        }
+        
+        $User = M('User');
+        return $User->data($user)->add();
+    }
+    
 }

@@ -452,3 +452,16 @@ function getStartAndEndUnixTimestamp($year = 0, $month = 0, $day = 0)
     $endTimestamp = strtotime($end_year_formated.'-'.$end_month_formated.'-'.$end_day_formated." 00:00:00") - 1;
     return array('start' => $startTimestamp, 'end' => $endTimestamp);
 }
+
+// object转json
+function objecttoarray($array) {
+    if(is_object($array)) {
+        $array = (array)$array;
+    } if(is_array($array)) {
+        foreach($array as $key=>$value) {
+            $array[$key] = objecttoarray($value);
+        }
+    }
+    return $array;
+}
+

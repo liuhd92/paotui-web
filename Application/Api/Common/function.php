@@ -1,4 +1,5 @@
 <?php
+use Think\Log;
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
@@ -206,7 +207,7 @@ function get_first_letter($str)
   * 生成订单号
   * 订单号生成规则：年月日时分秒 + 业务缩写 + 4位大写随机数
   */
- //1取快递|2送快递|3取餐|4衣物送洗|5送洗衣物代取，以后拓展往后顺接
+ //1取送件|2代购|3取餐|4送洗衣物|5送洗衣物代取，以后拓展往后顺接
  function create_order_num($type) {
      if (empty($type)) {
          return false;
@@ -215,16 +216,16 @@ function get_first_letter($str)
      $order_num = date('YmdHis');
      switch ($type){
          case 1:
-             $order_num = 'QKD'.$order_num; // 取快递
+             $order_num = 'QSJ'.$order_num; // 取快递
              break;
          case 2:
-             $order_num = 'SKD'.$order_num; // 送快递
+             $order_num = 'DG'.$order_num; // 送快递
              break;
          case 3:
              $order_num = 'QC'.$order_num; // 取餐
              break;
          case 4:
-             $order_num = 'YWSX'.$order_num; // 衣物送洗
+             $order_num = 'SXYW'.$order_num; // 衣物送洗
              break;
          case 5:
              $order_num = 'SXYWDQ'.$order_num; // 送洗衣物代取
@@ -236,3 +237,34 @@ function get_first_letter($str)
      $order_num.=randcode(4, 5);
      return $order_num;
  }
+ 
+ // 过滤掉emoji表情
+ function filter_Emoji($str){
+     $str = preg_replace_callback(    //执行一个正则表达式搜索并且使用一个回调进行替换
+         '/./u',
+         function (array $match) {
+             return strlen($match[0]) >= 4 ? '' : $match[0];
+         },
+         $str);
+ 
+     return $str;
+ }
+ 
+function from_emoji($str){
+    if(!is_string($str))return $str;
+    if(!$str || $str=='undefined')return '';
+
+    $text = json_encode($str); //暴露出unicode
+    $text = preg_replace_callback("/(\\\u[ed][0-9a-f]{3})/i",function($str){
+        return addslashes($str[0]);
+    },$text); //将emoji的unicode留下，其他不动，这里的正则比原答案增加了d，因为我发现我很多emoji实际上是\ud开头的，反而暂时没发现有\ue开头。
+    return json_decode($text);
+}
+ 
+function to_emoji($str){
+    $text = json_encode($str); //暴露出unicode
+    $text = preg_replace_callback('/\\\\\\\\/i',function($str){
+        return '\\';
+    },$text); //将两条斜杠变成一条，其他不动
+    return json_decode($text);
+}
