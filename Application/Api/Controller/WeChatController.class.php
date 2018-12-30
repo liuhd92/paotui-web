@@ -31,8 +31,8 @@ class WeChatController extends Controller { //UserFilterController
     public static $IllegalBuffer = -41003;
     public static $DecodeBase64Error = -41004;
     // 小程序
-    public static $appid = 'wxc65051d91b0ed650';  //小程序appid
-    public static $secret = 'ea721f89b0cda0104c9670bb39f75368'; //小程序秘钥
+    public static $appid = 'wx3ada1e3ffa9ff8a7';  //小程序appid
+    public static $secret = '909ce75f43900b5c6c4f1842d32aa715'; //小程序秘钥
 
     public $sessionKey ='';
 
@@ -46,7 +46,6 @@ class WeChatController extends Controller { //UserFilterController
         $url = 'https://api.weixin.qq.com/sns/jscode2session?appid='. $appid.'&secret='.$secret.'&js_code='.$code.'&grant_type=authorization_code';
         $result = self::httpGet($url);
         $res = json_decode($result);
-        // session(['sessionKey'=>$res,'expire'=>7200]);
         $this->ajaxReturn($res);
 
 

@@ -1,0 +1,11 @@
+[ 2018-12-29T15:02:39+08:00 ] 127.0.0.1 /api/wxpay/prepay/oid/9
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\phpStudy\WWW\paotui-web\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `pt_order` WHERE ( `id` = '9' ) LIMIT 1   [ RunTime:0.0010s ]
+

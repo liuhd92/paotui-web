@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace Api\Controller;
 use Think\Controller;
+use Think\Log;
 /**
  * 订单业务层
  * @author liuhd
@@ -19,7 +20,7 @@ class OrderController extends Controller {
     /*------------------------------------------------------ */
     public function order_detail(){
         /* ----------post/get参数 + 数据校验---------- */
-        $order_id = (int)I('post.id', 0);
+        $order_id = (int)I('post.id', 0); // 订单id
         if (empty($order_id)) json_error(10318); // 订单id不能为空
         
         /* ----------订单基本信息---------- */
@@ -78,6 +79,49 @@ class OrderController extends Controller {
     }
     
     /*------------------------------------------------------ */
+    //--评价订单
+    /*------------------------------------------------------ */
+    public function order_comment() {
+        /* ----------post/get参数 + 数据校验---------- */
+        $user_id = (int)I('post.uid', 0);
+        $order_id = (int)I('post.oid', 0);
+        $stars = (int)I('post.stars', 5);
+        $type = (int)I('post.type', 0); // 评价类型：1好评|2中评|3差评
+        $tags = I('post.tags', ''); // 标签
+        $content = I('post.content', '');
+        if (empty($user_id)) json_error(10201);
+        if (empty($order_id)) json_error(10318); // 订单id不能为空
+        
+        /* ----------订单基本信息---------- */
+        $Order = D('Order');
+        $detail_info = $Order->getInfoById($order_id);
+        if ($detail_info == null) {
+            json_error(10319); // 暂无当前订单
+        } else if ($detail_info === false){
+            json_error(10107); // 数据库操作失败
+        }
+        
+        /* ----------订单添加评价---------- */
+        // 组合订单评价信息
+        $comment_data = array();
+        $comment_data['user_id'] = $user_id;
+        $comment_data['order_id'] = $order_id;
+        $comment_data['star_level'] = $stars;
+        $comment_data['content'] = $content;
+        $comment_data['type'] = $type;
+        $comment_data['tag'] = htmlspecialchars_decode($tags);
+        $comment_data['created_time'] = time();
+        // 添加订单评论
+        $OrderCommet = D('OrderComment');
+        $result = $OrderCommet->add($comment_data);
+        if ($result > 0) {
+            json_success(array('msg' => '评价成功！'));
+        }
+        
+        json_error(10321); // 评价失败
+    }
+    
+    /*------------------------------------------------------ */
     //--私有方法 -- 格式化订单详情
     /*------------------------------------------------------ */
     private function filter_order($order_info = array()){
@@ -99,9 +143,14 @@ class OrderController extends Controller {
         $order_detail_info['to_user'] = to_emoji($order_detail_info['to_user']);
         $order_detail_info['goods'] = $goods_info;
         $order_detail_info['from_time_hi'] = date('H:i', $order_detail_info['from_time']);
+        
+        // 骑手信息
+        $Rider = D('Rider');
+        $rider_info = $Rider->find($order_detail_info['rid']);
+        if($rider_info === false) json_error(10107); // 数据库查询失败
+        $order_detail_info['rider'] = $rider_info;
         // 组合订单详情信息
         $order_info['detail'] = $order_detail_info;
-    
         return $order_info;
     }
 }
