@@ -13,14 +13,12 @@ return array(
     'DB_DEBUG'  =>  TRUE, // 数据库调试模式 开启后可以记录SQL日志 3.2.3新增
     
     // redis缓存服务配置
-    'REDIS_HOST' => 'r-2zed402562df3e14.redis.rds.aliyuncs.com', // 127.0.0.1     192.168.10.159
+    'REDIS_HOST' => '127.0.0.1', // 127.0.0.1     192.168.10.159
     'REDIS_PORT' => 6379,
-    'REDIS_USER' => 'test_username',
-    'REDIS_PWD' => 'LGP163com',
-    'REDIS_PREFIX' => 'API', // 每个项目单独配置
+    'REDIS_PREFIX' => 'TX', // 每个项目单独配置
     
     'CACHE_TOKEN_TIMER' => 3000, //token过期时间
     // memeched缓存服务配置
-    'MEMECHE_HOST' => 'm-2zed2894b6b0c4c4.memcache.rds.aliyuncs.com',
+    'MEMECHE_HOST' => '127.0.0.1',
     'MEMECHE_PORT' => 11211,
 );

@@ -31,7 +31,7 @@ class UserFilterController extends RestController{
         $this->checkHeader();
         $this->checkIP();
         $this->checkVersion();
-        $this->checkSign();
+//         $this->checkSign();
     }
     
     /**
@@ -60,21 +60,21 @@ class UserFilterController extends RestController{
         
         //获取传入accept_encoding
         if(empty($header['Accept-Encoding'])){
-            json_error(10301);
+            json_error(10111);
         }else{
             $this->accept_encoding = $header['Accept-Encoding'];
         }
         
         //获取传入的版本号
         if(empty($header['Client-Version'])){
-            json_error(10302);
+            json_error(10112);
         }else{
             $this->client_version = $header['Client-Version'];
         }
         
         //获取传入的客户端语言环境
         if(empty($header['Lang'])){
-            json_error(10303);
+            json_error(10113);
         }else{
             $this->lang = $header['Lang'];
         }
@@ -114,11 +114,11 @@ class UserFilterController extends RestController{
         
         if($this->os == 'android'){
             if ($version[0]<$android[0]){
-                json_error(10104);
+                json_error(10119);
             }
         }else if($this->os == 'iOS'){
             if($version[0]<$ios[0]){
-                json_error(10104);
+                json_error(10119);
             }
         }
         return true;
@@ -136,7 +136,7 @@ class UserFilterController extends RestController{
             // 对比sign字段
             if($sign_veryfy != $_sign){
                 //sign验证失败，非法请求
-                json_error(10305);
+                json_error(10115);
             }
         }
     }
@@ -145,18 +145,14 @@ class UserFilterController extends RestController{
      * 校验用户登陆状态
      */
     protected function checkLogin(){
-        $User = D('User');
-        $data = $User->getToken($this->uid);
-        
+        $Rider = D('Rider');
+        $data = $Rider->getInfoById($this->uid);
         if($data){
             if($data['token'] == $this->token){
                 return true;
-            }else{
-                //设备在其它设备上登陆
-                json_error(10307, array('msg' => str_replace("%", $data['equipment'], C('ERR_CODE.10307'))));
             }
         }
         //token校验失败
-        json_error(10306);
+        json_error(10116);
     }
 }

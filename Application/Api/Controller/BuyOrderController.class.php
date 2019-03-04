@@ -25,17 +25,17 @@ class BuyOrderController extends Controller { //UserFilterController
         $user_id            = (int)I('post.uid', 0);
         $type               = (int)I('post.type', 0); // 订单类型：1取快递|2送快递|3取餐|4衣物送洗|5送洗衣物代取，以后拓展往后顺接
         $detail_info        = I('post.detail_info', ''); // 订单详情
-        $base_price         = (int)I('post.base_price', 0);
-        $refer_price        = (int)I('post.refer_price', 0); // 用户估价
-        $tip_price          = (int)I('post.tip_price', 0); // 感谢费
+        $base_price         = I('post.base_price', '0');
+        $refer_price        = I('post.refer_price', '0'); // 用户估价
+        $tip_price          = I('post.tip_price', '0'); // 感谢费
         $is_specified       = (int)I('post.is_specified', 0); // 是否指定地址
         $specified_address  = I('post.specified_address', ''); // 指定的地址
         $specified_distance = (int)I('post.specified_distance', 0); // 指定地址与配送人员之间的距离
-        $specified_price    = I('post.specified_price', 0.00); // 指定地址所增加的金额
+        $specified_price    = I('post.specified_price', '0.00'); // 指定地址所增加的金额
         $discount_id        = (int)I('post.discount_id', 0);
-        $discount_price     = (int)I('post.discount_price', 0); // 优惠券金额
-        $weight_price       = (int)I('post.weight_price', 0); // 重量金额
-        $distance_price     = (int)I('post.distance_price', 0); // 距离金额
+        $discount_price     = I('post.discount_price', '0.00'); // 优惠券金额
+        $weight_price       = I('post.weight_price', '0.00'); // 重量金额
+        $distance_price     = I('post.distance_price', '0.00'); // 距离金额
         $is_pay             = (int)I('post.is_pay', 0); // 是否支付
         $pay_time           = (int)I('post.pay_time', 0); // 支付时间
         $create_time        = (int)I('post.create_time', time()); // 订单创建时间
@@ -63,7 +63,7 @@ class BuyOrderController extends Controller { //UserFilterController
         } else if ($user_info === false) {
             json_error(10107); // 数据库操作失败
         }
-        
+
         /************生成订单************/
         // ①构建订单基础数据(order)
         $order_data = array();
@@ -72,7 +72,7 @@ class BuyOrderController extends Controller { //UserFilterController
         $order_data['type']         = $type;
         $order_data['total_price']  = $base_price + $tip_price + $specified_price + $weight_price + $distance_price;
         $order_data['is_pay']       = $is_pay;
-        $order_data['pay_price']    = $discount_id ? $order_data['total_price'] - $discount_price + $weight_price + $distance_price : $order_data['total_price'] + $weight_price + $distance_price; // -优惠金额
+        $order_data['pay_price']    = $discount_id ? $order_data['total_price'] - $discount_price  : $order_data['total_price']; // -优惠金额
         $order_data['pay_time']     = $pay_time;
         $order_data['create_time']  = $create_time;
         $order_data['update_time']  = time();
@@ -118,7 +118,7 @@ class BuyOrderController extends Controller { //UserFilterController
         if ($order_id === false) json_error(10107); // 数据库操作失败
         
         /************输出************/
-        if ($order_id && $order_detail_id) json_success(array('msg'=>'订单生成成功！'));
+        if ($order_id && $order_detail_id) json_success(array('oid'=>$order_id));
         
         json_error(10303); // 订单生成失败
     }

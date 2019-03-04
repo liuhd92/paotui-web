@@ -1,0 +1,63 @@
+[ 2019-02-21T18:26:20+08:00 ] 127.0.0.1 /api/rider/finish_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\phpStudy\WWW\paotui-web\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `pt_rider` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `pt_rider` WHERE ( `id` = '8' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `pt_order` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `pt_order_detail` WHERE ( `order_id` = '2' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `pt_order` SET `order_status`='5' WHERE `id` = 2 [ RunTime:0.0580s ]
+
+[ 2019-02-21T18:26:44+08:00 ] 127.0.0.1 /api/rider/finish_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\phpStudy\WWW\paotui-web\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `pt_rider` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `pt_rider` WHERE ( `id` = '8' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `pt_order` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `pt_order_detail` WHERE ( `order_id` = '2' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `pt_order` SET `order_status`='5' WHERE `id` = 2 [ RunTime:0.0880s ]
+
+[ 2019-02-21T18:27:02+08:00 ] 127.0.0.1 /api/rider/finish_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\phpStudy\WWW\paotui-web\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `pt_rider` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `pt_rider` WHERE ( `id` = '8' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `pt_order` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `pt_order_detail` WHERE ( `order_id` = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2019-02-21T18:27:12+08:00 ] 127.0.0.1 /api/rider/finish_order
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\phpStudy\WWW\paotui-web\ThinkPHP\Common\functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `pt_rider` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `pt_rider` WHERE ( `id` = '8' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pt_order` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `pt_order` WHERE ( `id` = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `pt_order_detail` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `pt_order_detail` WHERE ( `order_id` = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `pt_order_detail` SET `tracking_number`='12312312312312312312312312' WHERE `id` = 2 [ RunTime:0.0240s ]
+

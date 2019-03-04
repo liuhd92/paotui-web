@@ -32,7 +32,7 @@ class WeChatController extends Controller { //UserFilterController
     public static $DecodeBase64Error = -41004;
     // 小程序
     public static $appid = 'wx3ada1e3ffa9ff8a7';  //小程序appid
-    public static $secret = '909ce75f43900b5c6c4f1842d32aa715'; //小程序秘钥
+    public static $secret = '4d1d1ba3fe249953f6bcfeae76f77234'; //小程序秘钥
 
     public $sessionKey ='';
 

@@ -19,7 +19,6 @@ class PublicController extends Controller {
     }
     
     public function login() {
-
         vendor('WxMini.wxBizDataCrypt');
     
         $APPID = C('WX.APPID');

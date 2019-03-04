@@ -50,8 +50,8 @@ class WxpayController extends Controller{
         $openid = I('post.openid');
 		$order_id = (int)I('post.oid', 0);
 		$body = I('post.body');
-		$order_sn = I('post.order_sn');
 		$total_fee = I('post.total_fee');
+		$type = I('post.type');
 		
 		/* 获取订单编号 */
 		$Order = D('Order');
@@ -60,6 +60,15 @@ class WxpayController extends Controller{
 		    json_error(10314); // 暂无当前订单
 		} else if($order_info === false) {
 		    json_error(10107); // 数据库操作shibai
+		}
+		switch ($type){
+		    case 1:		        
+		        $url_notify = 'https://'.$_SERVER['HTTP_HOST'].'/Api/Wxpay/notify'; // 支付订单
+		        break;
+	        case 2:
+	            $order_info['order_number'] = $order_info['order_number'].'GIVE';
+	            $url_notify = 'https://'.$_SERVER['HTTP_HOST'].'/Api/Wxpay/notify_rider'; // 打赏骑手
+	            break;	            
 		}
 		
 		//统一下单参数构造
@@ -71,13 +80,19 @@ class WxpayController extends Controller{
 			'out_trade_no'	=> $order_info['order_number'],
 			'total_fee'		=> $total_fee * 100,
 			'spbill_create_ip'	=> get_client_ip(),
-			'notify_url'	=> 'https://'.$_SERVER['HTTP_HOST'].'/Api/Wxpay/notify',
+			'notify_url'	=> $url_notify,
 			'trade_type'	=> 'JSAPI',
 			'openid'		=> $openid
 		);
+		Log::write('---------------'.$type);
+		Log::write(var_export($order_info, true));
+// 		Log::write(var_export($unifiedorder, true));
 		$unifiedorder['sign'] = self::makeSign($unifiedorder);
+		Log::write('---------------');
+		Log::write(var_export($unifiedorder, true));
 		//请求数据
 		$xmldata = self::array2xml($unifiedorder);
+		Log::write(var_export($xmldata, true));
 		$url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         $res = self::curl_post_ssl($url, $xmldata);
         if(!$res){
@@ -93,6 +108,8 @@ class WxpayController extends Controller{
 		if(strval($content['return_code']) == 'FAIL'){
 			self::return_err(strval($content['return_msg']));
         }
+        
+        $content['type'] = $type;
         self::return_data(array('data'=>$content));
 		//$this->ajaxReturn($content);
 	}
@@ -120,10 +137,10 @@ class WxpayController extends Controller{
 		$this->ajaxReturn($data);
 	}
 	
-	//微信支付回调验证
+//微信支付回调验证
 	public function notify(){
 		$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
-		Log::write('进入回调了');
+		Log::write('进入支付回调了');
 		// 这句file_put_contents是用来查看服务器返回的XML数据 测试完可以删除了
 		//file_put_contents(APP_ROOT.'/Statics/log2.txt',$res,FILE_APPEND);
 		
@@ -141,122 +158,58 @@ class WxpayController extends Controller{
 			//获取服务器返回的数据
 			$order_sn = $data['out_trade_no'];			//订单单号
 			$openid = $data['openid'];					//付款人openID
-			$total_fee = $data['total_fee'] / 100;			//付款金额
+			$total_fee = $data['total_fee'] / 100;	  //付款金额
 			$transaction_id = $data['transaction_id']; 	//微信支付流水号
 			
 			//更新数据库
 			Log::write('$data======>'.json_encode($data));
+			
+			// 获取订单基础信息
 			$Order = D('Order');
+			$base_data = $Order->getInfoByNum($order_sn);
+			 
+			// 获取订单详细信息
 			$OrderDetail = D('OrderDetail');
-			$MyClass = D('MyClass');
-			$OrderLog = D('OrderLog');
-			$Class = D('Class');
-			$ClassMember = D('ClassMember');
-			$Course = D('Course');
-			$order_data = $Order->getInfoByOrderNo($order_sn);
-			if(empty($order_data)){
-				exit();
+			$detail_data = $OrderDetail->getInfoByOId($base_data['id']);
+			
+			if(empty($base_data) || empty($detail_data)){
+			    exit();
 			}
 			
 			//如果支付宝重复发效验，并且订单已经完成，直接返回成功即可
-			if($order_data['status'] == '2') {
+			if(base_data['status'] == '5') {
 				 exit();
 			}
-			
-			$now = time();
-			if($order_data['amount'] == $total_fee){
-				
-				$edit_where = array();
-				$edit_where['id'] = $order_data['id'];
-				$edit_data = array();
-				$edit_data['status'] = 2;
-				$edit_data['payment'] = 2;
-				$edit_data['paid_time'] = $now;
-				$edit_data['cash_sn'] = $transaction_id;
-				$edit_data['updated_time'] = $now;
-			
-				$order_result = $Order->edit($edit_where, $edit_data); //更新订单状态
-				$course_id = 0;
-				if($order_result){
-					//新增我的课程数据
-					$detail_list = $OrderDetail->getOrderDetailListByOrderId($order_data['id']);
-					if($detail_list){
-						foreach($detail_list as $val){
-							$course_id = $val['course_id']; //获取大班课ID
-							
-							$myclass_data = array();
-							$myclass_data['user_id'] = $val['user_id'];
-							$myclass_data['course_id'] = $val['course_id'];
-							$myclass_data['class_id'] = $val['class_id'];
-							$myclass_data['type'] = $val['type'];
-							$myclass_data['expiry_day'] = 0;
-							$myclass_data['created_time'] = $now;
-							if($val['play_type'] == 1){//直播
-								if($val['expiry_day'] > 0 && $val['start_time']){
-									if($now > $val['start_time']){//开课前买的 从开课时间算
-										$myclass_data['expiry_day'] = $now + $val['expiry_day'] * 86400;
-									}else{//开课时间以后买的 以当前时间算
-										$myclass_data['expiry_day'] = $val['start_time'] + $val['expiry_day'] * 86400;
-									}
-								}
-							}else{
-								if($val['expiry_day'] > 0){
-									$myclass_data['expiry_day'] = $now + $val['expiry_day'] * 86400;
-								}
-			
-							}
-							 
-							 
-							//班课学生记录
-							$classmember = array();
-							$classmember['class_id'] = $val['class_id'];
-							$classmember['course_id'] = $val['course_id'];
-							$classmember['user_id'] = $val['user_id'];
-							$classmember['order_id'] = $order_data['id'];
-							$classmember['note_num'] = 0;
-							$classmember['is_learned'] = 0;
-							$classmember['created_time'] = $now;
-							$classmember['updated_time'] = 0;
-							$classmember['remark'] = '';
-			
-							$class_member_result = $ClassMember->add($classmember);
-							if($class_member_result){
-								//更新班课的学生数
-								$myclass_addresult = $MyClass->add($myclass_data);
-								if($myclass_addresult){
-									$class_where = array();
-									$class_data = array();
-									$class_where['id'] = $val['class_id'];
-									$class_data['student_num'] = array('exp', 'student_num+1');
-									$Class->edit($class_where,$class_data);
-								}
-							}
-						}
-					}
 
-					//更新大班课的总销售收入
-					if($course_id){
-						$Course->edit(array('id'=>$course_id),array('income'=>array('exp', 'income+'.$order_data['amount'])));
-					}	
-					
-					//订单支付日志
-					$order_log = array();
-					 
-					$order_log['order_id'] = $order_data['id'];
-					$order_log['user_id'] = $order_data['user_id'];
-					$order_log['type'] = 2;
-					$order_log['message'] = '支付成功';
-					$order_log['ip'] = get_client_ip();
-					$order_log['created_time'] = $now;
-					$order_log_json = json_encode(array('sn'=>$order_data['id'],'status'=>'success','amount'=>$order_data['amount'],'paid_time'=>$now));
-					$order_log['data'] = $order_log_json;
-					 
-					$OrderLog->add($order_log);
-					 
-				}
-			
-			}
-			
+	        // 更新订单基础信息
+	        $res_base = $Order->edit(
+	            array('order_number' => $order_sn), 
+	            array(
+                    'pay_price' => $total_fee, 
+	                'is_pay' => 1, 
+	                'update_time' => time(), 
+	                'order_status' => 2,
+	                'pay_time' => time(),
+	            )
+	        );
+	        Log::write('--------------------');
+	        Log::write(var_export($res_base, true));
+	        if ($res_base === false || $res_base == 0) $result = false;
+	        
+	        $OrderPay = D('OrderPay');
+	        $res_pay = $OrderPay->add(
+	            array(
+	                'openid' => $openid,
+                    'order_id' => $base_data['id'], 
+	                'order_number' => $order_sn, 
+	                'cash_sn' => $transaction_id, 
+	                'total_fee' => $total_fee,
+	                'pay_time' => time(),
+	                'trade_type' => $data['trade_type']
+	            )
+	        );
+	        if ($res_pay === false) $result = false;
+	        		
 		}else{
 			$result = false;
 		}
@@ -268,6 +221,90 @@ class WxpayController extends Controller{
 		}
 		echo $str;
 		return $result;
+	}
+	
+	//微信支付回调验证
+	public function notify_rider(){
+	    $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+	    Log::write('进入打赏回调了');
+	    // 这句file_put_contents是用来查看服务器返回的XML数据 测试完可以删除了
+	    //file_put_contents(APP_ROOT.'/Statics/log2.txt',$res,FILE_APPEND);
+	
+	    //将服务器返回的XML数据转化为数组
+	    $data = self::xml2array($xml);
+	    // 保存微信服务器返回的签名sign
+	    $data_sign = $data['sign'];
+	    // sign不参与签名算法
+	    unset($data['sign']);
+	    $sign = self::makeSign($data);
+	
+	    // 判断签名是否正确  判断支付状态
+	    if ( ($sign===$data_sign) && ($data['return_code']=='SUCCESS') && ($data['result_code']=='SUCCESS') ) {
+	        $result = $data;
+	        //获取服务器返回的数据
+	        $order_sn = $data['out_trade_no'];			//订单单号
+	        $openid = $data['openid'];					//付款人openID
+	        $total_fee = $data['total_fee'] / 100;	  //付款金额
+	        $transaction_id = $data['transaction_id']; 	//微信支付流水号
+	        	
+	        //更新数据库
+	        Log::write('$data======>'.json_encode($data));
+	        
+	        // 获取订单基础信息
+	        $Order = D('Order');
+	        $base_data = $Order->getInfoByNum(substr($order_sn, 0, strlen($order_sn)-4));
+	        Log::write('base_Data');
+	        Log::write(var_export($base_data, true));
+	        
+	        // 获取订单详细信息
+	        $OrderDetail = D('OrderDetail');
+	        Log::write('detail_Data1');
+	        $detail_data = $OrderDetail->getInfoByOId($base_data['id']);
+	        Log::write('detail_Data2');
+	        Log::write(var_export($detail_data, true));
+	        
+	        if(empty($base_data) || empty($detail_data)){
+	            exit();
+	        }
+	        	
+	        //如果支付宝重复发效验，并且订单已经完成，直接返回成功即可
+	        if($detail_data['is_give'] == 1) {
+	            exit();
+	        }
+
+	        // 添加付款记录
+            $give = array();
+            $give['oid'] = $base_data['id'];
+            $give['uid'] = $base_data['uid'];
+            $give['rid'] = $detail_data['rid'];
+            $give['total_price'] = $total_fee;
+            $give['cash_sn'] = $transaction_id;
+            $give['order_number'] = substr($order_sn, 0, strlen($order_sn)-4);
+            $give['give_number'] = $order_sn;
+            $give['paid_time'] = time();
+            Log::write('give_Data');
+            Log::write(var_export($give, true));
+            
+            $RiderGive = D('RiderGive');
+            $res_give = $RiderGive->add($give);
+            Log::write('add_ersult : '.$res_give);
+            
+            // 更新基础信息 ： 是否打赏骑手
+            $order_result = $OrderDetail->edit(array('order_id' => $base_data['id']), array('is_give' => 1));
+            Log::write('order_result');
+            Log::write(var_export($order_result, true));
+	        	
+	    }else{
+	        $result = false;
+	    }
+	    // 返回状态给微信服务器
+	    if ($result) {
+	        $str='<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
+	    }else{
+	        $str='<xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[签名失败]]></return_msg></xml>';
+	    }
+	    echo $str;
+	    return $result;
 	}
 	
 //---------------------------------------------------------------用到的函数------------------------------------------------------------

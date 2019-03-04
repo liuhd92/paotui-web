@@ -26,6 +26,7 @@ class OrderController extends Controller {
         /* ----------订单基本信息---------- */
         $Order = D('Order');
         $detail_info = $Order->getInfoById($order_id);
+        
         if ($detail_info == null) {
             json_error(10319); // 暂无当前订单
         } else if ($detail_info === false){
@@ -146,7 +147,7 @@ class OrderController extends Controller {
         
         // 骑手信息
         $Rider = D('Rider');
-        $rider_info = $Rider->find($order_detail_info['rid']);
+        $rider_info = $Rider->getInfoById($order_detail_info['rid']);
         if($rider_info === false) json_error(10107); // 数据库查询失败
         $order_detail_info['rider'] = $rider_info;
         // 组合订单详情信息
