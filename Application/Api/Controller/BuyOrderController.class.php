@@ -41,7 +41,7 @@ class BuyOrderController extends Controller { //UserFilterController
         $create_time        = (int)I('post.create_time', time()); // 订单创建时间
         $from_address       = I('post.from_address', ''); // 送货地址
         $from_user          = I('post.from_user', ''); // 下单人 
-        $from_time          = I('post.from_time', ''); // 取件时间（只有取送件模块有）
+        $from_time          = I('post.from_time', time()); // 取件时间（只有取送件模块有）
         $from_latitude      = I('post.from_latitude', ''); // 送件地址维度
         $from_longitude     = I('post.from_longitude', ''); // 送件地址经度
         $to_address         = I('post.to_address', ''); // 取货地址（只有取送件模块有）
@@ -128,6 +128,7 @@ class BuyOrderController extends Controller { //UserFilterController
     /*------------------------------------------------------ */
     public function order_list() {
 //         $this->checkLogin();
+Log::write(var_export($_POST, true));
         /************post/get参数 + 数据校验************/
         $user_id = (int)I('post.uid', 0);
         $order_status = I('post.order_status', 0);

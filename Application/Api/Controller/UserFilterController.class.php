@@ -57,7 +57,7 @@ class UserFilterController extends RestController{
         $url = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'];
         //获取报头信息
         $header = self::getHeaders();
-        
+        Log::write(var_export($header, true));
         //获取传入accept_encoding
         if(empty($header['Accept-Encoding'])){
             json_error(10111);

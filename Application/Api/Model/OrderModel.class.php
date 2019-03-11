@@ -105,4 +105,26 @@ class OrderModel {
         $Order = M('Order');
         return $Order->where("`order_status` = '$status' and `is_pay` = '1'")->page($pages, $rows)->order('pay_time desc')->select();
     }
+    
+    /**
+     * 根据订单状态获取订单列表    0全部|1进行中|2待接单|3已取消|4待支付|5已完成
+     * @param number $status
+     */
+    public function getListByStatus2($pages = 1, $rows = 10, $status = 0, $sort = '') {
+        $Order = M('Order');
+        return $Order->where("`order_status` = '$status' and `is_pay` = '1'")->page($pages, $rows)->order("$sort desc")->select();
+    }
+    
+    /**
+     * 根据订单状态获取订单列表    0全部|1进行中|2待接单|3已取消|4待支付|5已完成
+     * @param number $status
+     */
+    public function getList($where = array(), $sort = 'o.pay_time') {
+        $Order = M('Order');
+        return $Order
+                ->alias("o")
+                ->join("left join pt_order_detail as od on o.id=od.order_id")
+                ->where($where)->order("$sort desc")
+                ->select();
+    }
 }

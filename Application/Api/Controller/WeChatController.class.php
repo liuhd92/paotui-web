@@ -64,10 +64,20 @@ class WeChatController extends Controller { //UserFilterController
         Log::write(var_export($res, true));
         Log::write($res['phoneNumber']);
         if($res['phoneNumber']){
+            
             // $res->phoneNumbe 就是手机号可以 写入数据库或者做其他操作
             $User = D('User');
-            $user_id = $User->add(array('phone' => $res['phoneNumber'], 'open_id' => $openid));
-            if ($user_id === false) json_error(10107); // 数据库操作失败
+            
+            $userInfo = $User->getInfoByPhone($res['phoneNumber']);
+            if ($userInfo) {
+                $res['phoneNumber'] = $userInfo['phone'];
+                $openid = $userInfo['open_id'];
+                $user_id = $userInfo['id'];
+            } else {
+                $user_id = $User->add(array('phone' => $res['phoneNumber'], 'open_id' => $openid));
+                if ($user_id === false) json_error(10107); // 数据库操作失败
+            }
+            
         }
         $res['user_id'] = $user_id;
         json_success($res);

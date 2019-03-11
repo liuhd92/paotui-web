@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace Api\Controller;
 use Think\Controller;
+use Think\Log;
 /**
  * 下单业务层
  * @author liuhd
@@ -23,6 +24,10 @@ class RiderController extends UserFilterController {
         $mobile = I('post.real_phone', '');
         $idcard = I('post.idcard', '');
         $name = I('post.real_name', '');
+        $name = urldecode($name);
+                Log::write(var_export($_POST, true));
+                Log::write('name : '.$name);
+        $duty = I('post.duty', '');
         $gender = (int)I('post.gender', 0); // 0未知|1男|2女
         $password = strlen($idcard)==15 ? ('19' . substr($idcard, 6, 6)) : substr($idcard, 6, 8); // 身份证提取出生年月日作为密码
         if (empty($mobile)) json_error(10601); // 手机号不能为空
@@ -30,10 +35,12 @@ class RiderController extends UserFilterController {
         if (empty($idcard)) json_error(10603); // 身份证号码不能为空
         
         /* ----------生成骑手账号---------- */
+//         json_decode
         $rider_data = array();
         $rider_data['nick_name'] = $name;
         $rider_data['wx_phone'] = $mobile;
         $rider_data['real_name'] = $name;
+        $rider_data['duty'] = $duty;
         $rider_data['real_phone'] = $mobile;
         $rider_data['gender'] = $gender;
         $rider_data['idcard'] = $idcard;
@@ -47,6 +54,7 @@ class RiderController extends UserFilterController {
         if ($id) {
             // 查询用户信息
             $rider_info = $Rider->getInfoById($id);
+            Log::write(json_success($rider_info));
             json_success($rider_info);
         }
         
@@ -118,7 +126,7 @@ class RiderController extends UserFilterController {
         /* ----------获取订单信息---------- */
         $Order = D('Order');
         // 获取待接单的订单（基本信息）
-        $order_list = $Order->getListByStatus($pages, $rows, 2); //0全部|1进行中|2待接单|3已取消|4待支付|5已完成
+        $order_list = $Order->getListByStatus($pages, $rows, 1); //0全部|1进行中|2待接单|3已取消|4待支付|5已完成
         if ($order_list == null) {
             json_error(10606); // 暂无订单
         } else if ($order_list === false) {
@@ -192,7 +200,9 @@ class RiderController extends UserFilterController {
         /* ----------校验登录状态---------- */
         $this->checkLogin();
         $rider_id = $this->uid;
-        $order_status = (int)I('post.order_status', 1); // 订单状态：0全部|1进行中|2待接单|3已取消|4待支付|5已完成
+        $order_status = (int)I('post.order_status', 1); // 订单状态：1进行中 | 5已完成
+        $order_status_arr = array('1', '5');
+        if (!in_array($order_status, $order_status_arr)) json_error(10610); // 订单状态错误
         $rows  = (int)I('post.rows', 10);
         $pages = (int)I('post.pages', 1);
         
@@ -204,6 +214,12 @@ class RiderController extends UserFilterController {
             json_error(); // 暂无订单信息
         } else if ($order_list === false) {
             json_error(10107); // 数据库操作失败
+        }
+        
+        // 获取订单详细信息并组合
+        $OrderDetail = D('OrderDetail');
+        foreach ($order_list as $k=>$v) {
+            $order_list[$k]['detail'] = $OrderDetail->getInfoByOId($v['id']);
         }
         
         // 返回订单列表
@@ -235,6 +251,7 @@ class RiderController extends UserFilterController {
         // 获取订单详细信息
         $OrderDetail = D('OrderDetail');
         $order_detail_info = $OrderDetail->getInfoByOId($order_id);
+        if ($order_detail_info['rid'] != $rider_id) json_error(10611); // 请先接单
         if ($order_detail_info == null) {
             json_error(10606); // 暂无订单
         } else if ($order_detail_info === false) {
@@ -242,16 +259,19 @@ class RiderController extends UserFilterController {
         }
         
         /* ----------订单完成---------- */
-        $data = array();
         if (empty($tracking_number)) {
-            $data['order_status'] = 5;
+            // 修改订单状态：如果有快递公司生成的订单号， 则填写订单号
+            $result = $Order->edit(array('id'=>$order_id), array('order_status'=>'5'));
+            if ($result === false) json_error(10107); // 数据库操作失败
         } else {
-            $data['tracking_number'] = $tracking_number;
             $data['order_status'] = 5;
+            $result = $Order->edit(array('id'=>$order_id), array('order_status'=>'5'));
+            if ($result === false) json_error(10107); // 数据库操作失败
+            
+            $data['tracking_number'] = $tracking_number;
+            $result = $OrderDetail->edit(array('id'=>$order_id), array('tracking_number'=>$tracking_number, 'finish_time'=>time()));
+            if ($result === false) json_error(10107); // 数据库操作失败
         }
-        // 修改订单状态：如果有快递公司生成的订单号， 怎填写订单号
-        $result = $OrderDetail->edit(array('id'=>$order_id), $data);
-        if ($result === false) json_error(10107); // 数据库操作失败
         
         json_success(array('msg'=>'订单状态修改成功'));
     }

@@ -7,6 +7,8 @@
 // | Author: liuhd<liuhd92@163.com>
 // +----------------------------------------------------------------------
 namespace Api\Model;
+use Think\Log;
+
 /**
  * 订单详情管理数据层
  * @author liuhd
@@ -75,7 +77,7 @@ class OrderDetailModel {
             return false;
         }
         $OrderDetail = M('OrderDetail');
-        return $OrderDetail->data($data)->where($where)->save();
+        return $OrderDetail->where($where)->save($data);
     }
     
     /**

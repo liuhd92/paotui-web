@@ -30,6 +30,21 @@ class UserModel {
     }
     
     /**
+     * 根据用户手机号获取单个用户信息
+     * @param  number $user_id 用户id
+     * @return bool|array
+     * @author liuhd
+     */
+    function getInfoByPhone($phone = '') {
+        if (empty($phone)) {
+            return false;
+        }
+        
+        $User = M('User');
+        return $User->where("`phone` = '$phone'")->find();
+    }
+    
+    /**
      * 添加用户信息
      * @param  array $user 用户数据
      * @return bool|int

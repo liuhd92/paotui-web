@@ -36,10 +36,6 @@ class RiderModel {
      * @author liuhd
      */
     function getInfoById($rider_id = 0) {
-        if (empty($rider_id)) {
-            return false;
-        }
-    
         $Rider = M('Rider');
         return $Rider->where("`id` = '$rider_id'")->find();
     }
@@ -104,6 +100,11 @@ class RiderModel {
         }
     
         return $data;
+    }
+    
+    public function getList() {
+        $Rider = M('Rider');
+        return $Rider->where("`status`='0'")->select();
     }
     
 }

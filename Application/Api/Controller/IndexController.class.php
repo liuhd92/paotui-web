@@ -8,6 +8,7 @@
 // +----------------------------------------------------------------------
 namespace Api\Controller;
 use Think\Controller;
+use Think\Log;
 /**
  * 下单业务层
  * @author liuhd
@@ -19,7 +20,21 @@ class IndexController extends Controller {
     /*------------------------------------------------------ */
     public function index(){
         /* ----------post/get参数 + 数据校验---------- */
-        phpinfo();
-        $this->display();
+        $username = I('post.username', '');
+        $passwd = I('post.password', '');
+        Log::write(var_export($_POST, true));
+        Log::write('usernmae : '.$username);
+        Log::write('passwd : '.$passwd);
+        
+        if (($username == 'syy' && $passwd=='shaoyaoyao') || ($username == 'lyb' && $passwd=='liuyuanbo') ||( $username == 'lhd' && $passwd=='liuhuandong')) {
+            $this->redirect('order/admin_order_list');
+        } else {
+            if ($username && $passwd) {
+                echo "<script>alert('账号/密码错误')</script>";
+            }
+            
+            $this->display();
+        }
+        
     }
 }
