@@ -15,7 +15,36 @@ use Think\Log;
  * @date 2018/11/14
  */
 class BuyOrderController extends Controller { //UserFilterController
-
+    /*------------------------------------------------------ */
+    //--是不是首单（收单立减1元）
+    /*------------------------------------------------------ */
+    public function first_order() {
+        /************post/get参数 + 数据校验************/
+        $open_id = I('post.open_id', '');
+        Log::write(var_export($_POST, true));
+        Log::write('open_id : '.$open_id);
+        if (empty($open_id)) json_error(10201);
+        
+        /************查询用户信息************/
+        $User = D('User');
+        $user_info = $User->getInfoByOpenid($open_id);
+        if ($user_info === false) {
+            json_error(10107); // 数据库操作失败
+        } else if ($user_info == null){
+            json_error(10202); // 暂无当前用户信息
+        }
+        
+        /************是不是首单************/
+        $Order = D('Order');
+        $order_info = $Order->exist_user_order($user_info['id']);
+        if ($order_info === false) {
+            json_error(10107); // 数据库操作失败
+        } else if ($order_info == null){
+            json_success(array('msg'=>'yes'));
+        } else if ($order_info){
+            json_success(array('msg'=>'no'));
+        }
+    }
     /*------------------------------------------------------ */
     //--下单
     /*------------------------------------------------------ */
@@ -41,7 +70,8 @@ class BuyOrderController extends Controller { //UserFilterController
         $create_time        = (int)I('post.create_time', time()); // 订单创建时间
         $from_address       = I('post.from_address', ''); // 送货地址
         $from_user          = I('post.from_user', ''); // 下单人 
-        $from_time          = I('post.from_time', time()); // 取件时间（只有取送件模块有）
+        $from_time          = I('post.from_time', time()); // 取件时间（只有取送件模块有
+        Log::write('from_time: '.$from_time);
         $from_latitude      = I('post.from_latitude', ''); // 送件地址维度
         $from_longitude     = I('post.from_longitude', ''); // 送件地址经度
         $to_address         = I('post.to_address', ''); // 取货地址（只有取送件模块有）

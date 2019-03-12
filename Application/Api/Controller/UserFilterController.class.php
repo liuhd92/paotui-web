@@ -39,7 +39,7 @@ class UserFilterController extends RestController{
      * @return array
      */
     private function getHeaders(){
-        $headers = '';
+        $headers = array();
         foreach($_SERVER as $name => $value){
             if(substr($name, 0, 5) == 'HTTP_'){
                 $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
@@ -58,6 +58,7 @@ class UserFilterController extends RestController{
         //获取报头信息
         $header = self::getHeaders();
         Log::write(var_export($header, true));
+        
         //获取传入accept_encoding
         if(empty($header['Accept-Encoding'])){
             json_error(10111);
@@ -81,7 +82,7 @@ class UserFilterController extends RestController{
         
         //获取传入的操作系统名称
         if(empty($header['Os'])){
-            json_error(10304);
+            json_error(10114);
         }else{
             $this->os = $header['Os'];
         }

@@ -74,7 +74,7 @@ class WeChatController extends Controller { //UserFilterController
                 $openid = $userInfo['open_id'];
                 $user_id = $userInfo['id'];
             } else {
-                $user_id = $User->add(array('phone' => $res['phoneNumber'], 'open_id' => $openid));
+                $user_id = $User->add(array('phone' => $res['phoneNumber'], 'open_id' => $openid, 'created_time'=>time()));
                 if ($user_id === false) json_error(10107); // 数据库操作失败
             }
             

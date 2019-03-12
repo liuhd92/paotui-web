@@ -27,7 +27,9 @@ class OrderDetailModel {
         if (empty($data)) {
             return false;
         }
-        
+        if (!$data['from_time']) {
+            $data['from_time'] = time();
+        }
         $OrderDetail = M('OrderDetail');
         return $OrderDetail->data($data)->add();
     }

@@ -31,6 +31,22 @@ class OrderModel {
     }
     
     /**
+     * 用否已经存在该用户的订单
+     * @param  number $user_id 用户id 
+     * @return bool|array
+     * @author liuhd
+     * @data  2019/3/11
+     */
+    public function exist_user_order($user_id = 0) {
+        if (empty($user_id)) {
+            return false;
+        }
+        
+        $Order = M('Order');
+        return $Order->where("`uid` = '$user_id'")->find();
+    }
+    
+    /**
      * 根据用户id和订单类型获取订单列表
      * @param  number $user_id 用户id
      * @param  number $order_status 订单类型(0为所有所有)

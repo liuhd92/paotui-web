@@ -25,8 +25,6 @@ class RiderController extends UserFilterController {
         $idcard = I('post.idcard', '');
         $name = I('post.real_name', '');
         $name = urldecode($name);
-                Log::write(var_export($_POST, true));
-                Log::write('name : '.$name);
         $duty = I('post.duty', '');
         $gender = (int)I('post.gender', 0); // 0未知|1男|2女
         $password = strlen($idcard)==15 ? ('19' . substr($idcard, 6, 6)) : substr($idcard, 6, 8); // 身份证提取出生年月日作为密码
@@ -35,7 +33,6 @@ class RiderController extends UserFilterController {
         if (empty($idcard)) json_error(10603); // 身份证号码不能为空
         
         /* ----------生成骑手账号---------- */
-//         json_decode
         $rider_data = array();
         $rider_data['nick_name'] = $name;
         $rider_data['wx_phone'] = $mobile;
@@ -69,9 +66,10 @@ class RiderController extends UserFilterController {
         $mobile = I('post.real_phone', '');
         $password = I('post.password', '');
         $equipment = I('post.equipment', ''); // 登录设备
+         Log::write(var_export($_POST, true));
         if (empty($mobile)) json_error(10601); // 手机号不能为空
         if (empty($password)) json_error(10602); // 密码不能为空
-        if (empty($equipment)) json_error(10121); // 无法验证您的登录设备，请联系管理员
+//         if (empty($equipment)) json_error(10121); // 无法验证您的登录设备，请联系管理员
         
         /* ----------登录---------- */
         // ①：查询骑手信息是否存在
@@ -88,12 +86,8 @@ class RiderController extends UserFilterController {
         if (empty($rider_info['token'])) {
             $result = $Rider->edit(array('id'=>$rider_info['id']), array('equipment'=>$equipment));
             if ($result === false) json_error(10707); // 数据库操作失败
-        } else {
-            // ③：校验登录设备是否修改
-            if ($equipment != $rider_info['equipment']) json_error(10604); // 登录设备更换            
         }
 
-        
         // 标记登录状态
         $token = guid();
         /* ----------本地系统数据更新---------- */
@@ -211,7 +205,7 @@ class RiderController extends UserFilterController {
         $OrderDetail = D('OrderDetail');
         $order_list = $OrderDetail->getListByRid($rider_id, $order_status, $rows, $pages);
         if ($order_list == null) {
-            json_error(); // 暂无订单信息
+            json_error(10606); // 暂无订单信息
         } else if ($order_list === false) {
             json_error(10107); // 数据库操作失败
         }

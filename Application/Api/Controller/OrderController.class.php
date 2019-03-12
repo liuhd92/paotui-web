@@ -19,7 +19,6 @@ class OrderController extends Controller {
     //--咨询客户修改
     /*------------------------------------------------------ */
     public function order_detail(){
-        Log::write(var_export($_POST, true));
         /* ----------post/get参数 + 数据校验---------- */
         $order_id = (int)I('post.id', 0); // 订单id
         if (empty($order_id)) json_error(10318); // 订单id不能为空

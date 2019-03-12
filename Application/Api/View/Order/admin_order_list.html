@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function()
+		{
+				jQuery.fn.extend({
+					center:function(width,height)
+					{
+						return $(this).css("left", ($(window).width()-width)/2+$(window).scrollLeft()).
+						css("top", ($(window).height()-height)/2+$(window).scrollTop()).
+						css("width",width).
+						css("height",height);
+					}
+				});
+
+		});
+
+function paidanact(){
+	$("#login").show().center(350,250);//展现登陆框
+	//取消事件冒泡 
+    event.stopPropagation(); 
+    return false;
+}
+var xuanzhong = [];
+function checkAll(){
+    //1.获取编号前面的复选框
+    var checkAllEle = document.getElementById("checkAll");
+    //2.对编号前面复选框的状态进行判断
+    if(checkAllEle.checked==true){
+        //3.获取下面所有的复选框
+        var checkOnes = document.getElementsByName("checkOne");
+        
+        //4.对获取的所有复选框进行遍历
+        for(var i=0;i<checkOnes.length;i++){
+            //5.拿到每一个复选框，并将其状态置为选中
+            checkOnes[i].checked=true;
+            checkOnes[i].setAttribute('checked', 'checked')
+            xuanzhong.push(checkOnes[i]['defaultValue']);
+        }
+        
+    }else{
+        //6.获取下面所有的复选框
+        var checkOnes = document.getElementsByName("checkOne");
+        //7.对获取的所有复选框进行遍历
+        for(var i=0;i<checkOnes.length;i++){
+            //8.拿到每一个复选框，并将其状态置为未选中
+            checkOnes[i].checked=false;
+            checkOnes[i].setAttribute('checked', '')
+        }
+        xuanzhong = [];
+    }
+    console.log(xuanzhong)
+}
+
+function select_single(id){
+	var checkOne = document.getElementById(id+"_check");
+	if ($('#'+id+'_check').attr('checked')) {
+		$('#'+id+'_check').attr('checked', false)
+		removeByValue(xuanzhong,id)
+	} else {
+		$('#'+id+'_check').attr('checked', true)
+		xuanzhong.push(id.toString())
+	}
+	
+	/* removeByValue(xuanzhong,id) 
+	console.log(xuanzhong) */
+	console.log(xuanzhong)
+}
+function removeByValue(arr, val) {
+	    for (var i = 0; i < arr.length; i++) {
+	        if (arr[i] == val) {
+	            arr.splice(i, 1);
+	            break;
+	        }
+	    }
+	}
+
+$(document).click(function(e){
+ 	var divTop = $('#login');   // 设置目标区域
+ 	if(!divTop.is(e.target) && divTop.has(e.target).length === 0){
+      divTop.hide()
+  }
+})
+
+function windowHeight() {
+	var de = document.documentElement;
+	return self.innerHeight||(de && de.clientHeight)||document.body.clientHeight;
+}
+window.onload=window.onresize=function(){
+	var wh=windowHeight();
+	document.getElementById("xt-left").style.height = document.getElementById("xt-right").style.height = (wh-document.getElementById("xt-top").offsetHeight)+"px";
+}
+
+var rider_id = 0;
+function rider_select(obj){
+	rider_id = obj.getAttribute("value");
+}
+</script>
+
+<body>
+<!-- top -->
+<div id="xt-top">
+    <div class="xt-logo"><img src="__PUBLIC__/images/logo.png" /></div>
+    <div class="xt-geren">
+        <div class="xt-exit"><span class="xt-span">您好! 管理员，欢迎您第<span class="xt-yanse">2350次</span>登录管理中心</span><a href="#" class="help">帮助</a>
+            <a href="#" class="exit">退出</a></div>
+    </div>
+</div>
+<!-- left -->
+<div class="xt-center">
+<div id="xt-left">
+    <div class="xt-logo"></div>
+    <div class="xt-menu">
+        <ul>
+            <li><a href="{:U('order/admin_order_list2')}" class="hover"><em class="one"></em>未派单</a></li>
+            <li><a href="{:U('order/admin_order_list2')}" class=""><em class="one"></em>已派单</a></li>
+        </ul>
+        <div class="xt-menu-list"></div>
+        <ul>
+            <li><a href="#"><em class="two"></em>系统设置</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"><em class="three"></em>报表数据</a></li>
+        </ul>
+    </div>
+</div>
+<!-- right -->
+<div id="xt-right">
+    <div class="xt-bt">基础信息 > 个人信息管理 > 个人信息审核</div>
+    <div class="xt-input">
+    	<form action="{:U('order/admin_order_list')}" method="get">
+        <span>楼/座/室/号</span><input type="text" name="shaixuan" id="shaixuan" value="{$shaixuan}" class="int-text" />
+        <input type="submit" value="确 定" class="yellow-int" />
+        </form>
+    </div>
+    <div class="xt-table">
+        <table cellpadding="0" cellspacing="0" border="0" bgcolor="#dcdcdc" width="100%">
+        <thead>
+                <tr>
+                    <th colspan="2">
+                        <input type="checkbox" id="checkAll" onclick="checkAll()" value="">全选</input>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+            <th>id</th>
+            <th>订单编号</th>
+            <th>寄件人信息</th>
+            <th>取件人信息</th>
+            <th>物品详情</th>
+            <th>备注</th>
+            <th>支付时间</th>
+            <th>支付金额</th>
+            <th>快递单号</th>
+            <th id="paidan1">派单</th>
+            </tr>
+            <volist name="order_list" id="vo">
+            	<tr>
+            	<!-- <input type="text" type="hidden" value="{$vo['id']}"> -->
+            	<td ><input type="checkbox" id="{$vo['id']}_check" onclick="select_single({$vo['id']})" name="checkOne" value="{$vo['id']}"></td>
+                <td>{$vo['order_number']}</td>
+                <td>{$vo['detail']['from_user']}<br />{$vo['detail']['from_phone']}<br />{$vo['detail']['from_address']}</td>
+                <td>{$vo['detail']['to_user']}<br />{$vo['detail']['to_phone']}<br />{$vo['detail']['to_address']}</td>
+                <td>{$vo['detail']['detail_info']}</td>
+                <td>{$vo['detail']['remark']}</td>
+                <td>{$vo['pay_time']|date="Y-m-d H:i:s",###}</td>
+                <td>{$vo['pay_price']}(含重量价格：{$vo['detail']['weight_price']})</td>
+                <td>{$vo['detail']['tracking_number']}</td>
+                <td onClick="paidanact()"><a href="#" class="yellow-xt">派</a></td>
+                <!-- <td><a href="#" class="yellow-xt">派</a><a href="#" class="blue-xt">状态</a><a href="#" class="red-xt">状态</a></td> -->
+            </tr>
+            </volist>
+        </table>
+    </div>
+    <!-- <div class="xt-fenye">
+        <div class="xt-fenye-left">当前第 1 / 270 页,每页10条，共 2696条记录</div>
+        <div class="xt-fenye-right">
+            <a href="#">首页</a>
+            <a href="#">上一步</a>
+            <a href="#">下一步</a>
+            <a href="#">尾页</a>
+            <input type="text" name="text" />
+            <a href="#" class="xt-link">跳转</a>
+        </div>
+    </div> -->
+</div>
+</div>
+
+</body>
+
+
+
+
+<div id="login" style="display:none">
+		<h2><img src="__PUBLIC__/images/close.png" alt="" class="close" />接单人员</h2>
+		<!-- <form id="loginForm" action="{:U('rider/get_order')}"> -->
+		<div class="info"></div>
+		<volist name="rider_list" id="rider">
+			<div> <input type="radio" name="rider[]" value="{$rider['id']}" onclick="rider_select(this)">{$rider['real_name']}   (责任楼层：{$rider['duty']})</input></div>
+		</volist>
+		<!-- <div class="button" id="sub"><input type="button" name="sub" class="submit" value="提交" /></div> -->
+		<button onclick="sub_paidan()"  style="display:block;margin:0 auto">提交</button>
+		<!-- </form> -->
+	</div>
+
+
+</html>
+<script>
+
+function sub_paidan(){
+	$.ajax({
+		type:"post",
+		url: "{:U('order/get_order')}", 
+		data:{
+			'rider_id':rider_id,
+			'order_ids': xuanzhong.toString()
+		},
+		success: function(res){
+			if(res.code == 0){
+				alert(res.data.msg);
+				location.reload()
+			}
+			console.log(res)
+		}
+      });
+}
+</script>
+

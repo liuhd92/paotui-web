@@ -45,6 +45,21 @@ class UserModel {
     }
     
     /**
+     * 根据用户open_id获取单个用户信息
+     * @param  string $open_id 用户id
+     * @return bool|array
+     * @author liuhd
+     */
+    function getInfoByOpenid($open_id = '') {
+        if (empty($open_id)) {
+            return false;
+        }
+        
+        $User = M('User');
+        return $User->where("`open_id` = '$open_id'")->find();
+    }
+    
+    /**
      * 添加用户信息
      * @param  array $user 用户数据
      * @return bool|int
